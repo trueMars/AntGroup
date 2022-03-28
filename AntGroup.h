@@ -1,13 +1,13 @@
 #pragma once
 #include<vector>
-#include"MyGraph.h"
+#include"Map.h"
 #include"MyAnt.h"
 
 class AntGroup
 {
 private:
-    MyGeoMap Map;
-    MyGeoMap temp_map;
+    GeoMap Map;
+    GeoMap temp_map;
     Ant theBestAnt;
     std::vector<double> distances;
     int ANT_NUM;                                            //蚂蚁数量
@@ -16,10 +16,10 @@ private:
     double alpha;                                           //信息素因子
     double beta;                                            //启发函数因子
     double reho;                                            //信息素挥发因子
-    void FindWay(MyGeoMap target_map,const string &c_name_src,const string &c_name_dst);
+    void FindWay(GeoMap target_map,const string &c_name_src,const string &c_name_dst);
 public:
     AntGroup() {}
-    AntGroup(MyGeoMap &_map,
+    AntGroup(GeoMap &_map,
                 int ant_num = 50,
                 int max_iteration_time = 200,
                 double sem_con = 15.0,
