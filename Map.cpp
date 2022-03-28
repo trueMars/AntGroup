@@ -2,17 +2,17 @@
 #include<cstdlib>
 #include"Map.h"
 
-GeoMap::CityNodeAttr& GeoMap::operator[](const string &c_name) 
+CityNodeAttr& GeoMap::operator[](const string &c_name) 
 {
     return Nodes[c_name];
 }
 
-GeoMap::CitiesNext& GeoMap::GetNextNodes(const string &c_name) 
+CitiesNext& GeoMap::GetNextNodes(const string &c_name) 
 {
     return Nodes[c_name].second;
 }
 
-GeoMap::CitiesNext GeoMap::GetNodesAva(const string &c_name)
+CitiesNext GeoMap::GetNodesAva(const string &c_name)
 {
     CitiesNext cities_temp;
     for(auto temp:Nodes[c_name].second)
@@ -21,7 +21,7 @@ GeoMap::CitiesNext GeoMap::GetNodesAva(const string &c_name)
     return cities_temp;
 }
 
-GeoMap::Sem_Dst& GeoMap::GetInfo(const string &c_name_src,const string &c_name_dst)
+Sem_Dst& GeoMap::GetInfo(const string &c_name_src,const string &c_name_dst)
 {
     if(IsNext(c_name_src,c_name_dst))
         return GetNextNodes(c_name_src)[c_name_dst];
