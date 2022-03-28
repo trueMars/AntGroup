@@ -9,13 +9,14 @@ using std::vector;
 using std::string;
 using std::set;
 
+typedef std::pair<double,double> Sem_Dst;                       //first为信息素浓度，second为距离   
+typedef std::unordered_map<string,Sem_Dst> CitiesNext;          //相邻城市节点信息，以城市名为键，值为到该城市的路径信息
+typedef std::pair<bool,CitiesNext> CityNodeAttr;                //城市节点属性，first为是否已经过，second为相邻城市节点信息
+typedef std::unordered_map<string,CityNodeAttr> CityNode;       //城市节点，以城市名为键，值为城市节点属性
+
 class GeoMap
 {
 private:
-    typedef std::pair<double,double> Sem_Dst;                       //first为信息素浓度，second为距离   
-    typedef std::unordered_map<string,Sem_Dst> CitiesNext;          //相邻城市节点信息，以城市名为键，值为到该城市的路径信息
-    typedef std::pair<bool,CitiesNext> CityNodeAttr;                //城市节点属性，first为是否已经过，second为相邻城市节点信息
-    typedef std::unordered_map<string,CityNodeAttr> CityNode;       //城市节点，以城市名为键，值为城市节点属性
     set<string> CityNames;
     CityNode Nodes;   
 public:
