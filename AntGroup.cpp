@@ -35,7 +35,7 @@ void AntGroup::FindWay(const string &c_name_src,const string &c_name_dst)
     } 
 }
 
-void AntGroup::FindWay(MyGeoMap target_map,const string &c_name_src,const string &c_name_dst)
+void AntGroup::FindWay(GeoMap target_map,const string &c_name_src,const string &c_name_dst)
 {
     Ant the_ant;
     the_ant.AddWay(c_name_src);
@@ -68,7 +68,8 @@ void AntGroup::FindWay(MyGeoMap target_map,const string &c_name_src,const string
         }
 
         /*计算概率数组并排序*/
-      
+
+        // std::cout << "计算概率数组并排序\n";
         long double p_sum = 0.0;
         std::map<long double,string> sorted_p;
         for(auto i:cs_next) {
